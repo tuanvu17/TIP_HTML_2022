@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!-- ===== SWIPER CSS ===== -->
+   <link rel="stylesheet" href="">
+
+   <!-- ===== BOX ICONS ===== -->
+   <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+
+   <!-- ===== CSS ===== -->
+   <link rel="stylesheet" href="./assets/css/styles.css">
+
+   <title>TIP CSS</title>
+</head>
+
+<body>
+   <!--===== SCROLL TOP =====-->
+   <a href="#" class="scrolltop" id="scroll-top">
+      <i class='bx bx-up-arrow-circle scrolltop__icon'></i>
+   </a>
+
+   <!--===== HEADER =====-->
+   <header class="l-header" id="header">
+      <nav class="tv-container nav">
+         <a href="#" class="nav__logo">
+            <img src="https://www.30secondsofcode.org/assets/30s-logo.png" alt="Home">
+         </a>
+         <div class="nav__control__wrapper tv-grid">
+            <a href="#" class="px-2">Snippets</a>
+            <a href="#" class="px-2">Collections</a>
+            <div class="nav__search__wapper">
+               <i class='bx bx-search'></i>
+               <input class="search-box" placeholder="Searching...">
+            </div>
+         </div>
+      </nav>
+   </header>
+   <main class="l-main">
+      <!--===== Perspective =====-->
+      <section class="perspective tv-container section">
+         <h2 class="section-title">Card</h2>
+         <span class="section-subtitle"> Applies a perspective transform with a hover animation to an element.
+
+            Use transform with the perspective() and rotateY() functions to create a perspective for the element.
+            Use a transition to update the transform attribute's value on hover.
+            Change the rotateY() value to negative to mirror the perspective effect from left to right.r</span>
+         <div class="card-container">
+            <!-- <div class="image-card perspective-left"></div>
+            <div class="image-card perspective-right"></div> -->
+            <div class="image-card perspective-left"></div>
+            <div class="image-card perspective-right"></div>
+         </div>
+      </section>
+
+      <!--===== search =====-->
+      <section class="search tv-container section">
+         <h2 class="section-title">Search</h2>
+         <span class="section-subtitle">Search Bar Using Html CSS & javascript | CSS Expandable Search Box</span>
+         <div class="search-container">
+            <div class="search__icon">
+            </div>
+            <div class="search__input">
+               <input type="text" id="mysearch" placeholder="Search...">
+            </div>
+            <span class="search__clear"></span>
+         </div>
+      </section>
+      <!--===== search 2 =====-->
+      <section class="find tv-container section">
+         <h2 class="section-title">Find Something</h2>
+         <span class="section-subtitle">Search Bar Using Html CSS & javascript | CSS Expandable Search Box</span>
+         <div class="find-container" id="find-container">
+            <div class="find-icon" id="find-icon"></div>
+            <div class="find-input" id="find-input">
+               <input type="text" id="myfind" placeholder="Search...">
+            </div>
+            <div class="find-clear" id="find-clear"></div>
+         </div>
+      </section>
+
+      <!--===== Animated Circular  =====-->
+      <!-- https://www.youtube.com/watch?v=ShPPkZEeLPo -->
+      <section class="circular tv-container section">
+         <h2 class="section-title">Animated Circular Navigation</h2>
+         <span class="section-subtitle">Animated Circular Navigation Menu using Html CSS & Vanilla Javascript | Simple
+            Radial Menu</span>
+         <div class="circular__menu" id="circula-menu">
+            <div class="circular__toggle" id="circular-toggle">
+               <ion-icon class="add" name="add"></ion-icon>
+            </div>
+            <li style="--i:0">
+               <a href=""><i class='bx bx-home-alt'></i></a>
+            </li>
+            <li style="--i:1">
+               <a href=""><i class='bx bx-camera'></i></a>
+            </li>
+            <li style="--i:2">
+               <a href=""><i class='bx bx-user'></i></a>
+            </li>
+            <li style="--i:3">
+               <a href=""><i class='bx bx-cog'></i></a>
+            </li>
+            <li style="--i:4">
+               <a href=""><i class='bx bx-message-rounded-detail'></i></a>
+            </li>
+            <li style="--i:5">
+               <a href=""><i class='bx bx-key'></i></a>
+            </li>
+            <li style="--i:6">
+               <a href=""><i class='bx bx-video'></i></a>
+            </li>
+            <li style="--i:7">
+               <a href=""><i class='bx bx-cycling'></i></a>
+            </li>
+         </div>
+      </section>
+      <!--===== Progress Bar  =====-->
+      <section class="progress tv-container section">
+         <h2 class="section-title">CSS Progress Bar</h2>
+         <span class="section-subtitle progress-subtitle">In this video I am going to walk you through the process of
+            building a progress
+            bar in CSS that can be configured in both HTML and JavaScript. We will be using modern and unique CSS tricks
+            to make the progress bar easy to work with in both JavaScript and HTML.</span>
+         <div class="progress-bar" style="--width:20" data-label="Loading...."></div>
+      </section>
+
+      <!--===== Mouse cursor gradient tracking  =====-->
+      <!-- https://www.30secondsofcode.org/css/s/mouse-cursor-gradient-tracking -->
+      <section class="gradient tv-container section">
+         <h2 class="section-title">Mouse cursor gradient tracking</h2>
+         <span class="section-subtitle progress-subtitle">A hover effect where the gradient follows the mouse cursor.
+            Declare two CSS variables, --x and --y, used to track the position of the mouse on the button.
+            Declare a CSS variable, --size, used to modify the gradient's dimensions.
+            Use background: radial-gradient(circle closest-side, pink, transparent) to create the gradient at the
+            correct position.
+            Use Document.querySelector() and EventTarget.addEventListener() to register a handler for the 'mousemove'
+            event.
+            Use Element.getBoundingClientRect() and CSSStyleDeclaration.setProperty() to update the values of the --x
+            and --y CSS variables.</span>
+         <div class="gradient__container">
+            <button class="mouse-cursor-gradient-tracking">
+               <span>Hover me</span>
+            </button>
+         </div>
+      </section>
+      <!--===== Css transparent glass card animation  =====-->
+      <!-- https://www.youtube.com/watch?v=EwXeKMWBKpk&list=PLD6TyKqs7qRbTIzMoe4oklgpu6pwWS11T -->
+      <section class="glass__card-container tv-container section">
+         <h2 class="section-title">Css transparent glass card animation</h2>
+         <span class="section-subtitle progress-subtitle">
+            Copyright Disclaimer under Section 107 of the copyright act 1976,
+         </span>
+         <div class="glass__card">
+            <span style="--i:0"></span>
+            <span style="--i:1"></span>
+            <span style="--i:2"></span>
+            <span style="--i:3"></span>
+            <div class="glass">
+               <h2>Tuan vu ProDev <br> <i>+09 8925 3495</i> </h2>
+            </div>
+         </div>
+      </section>
+
+      <!--===== Pagination UI Design  =====-->
+      <!-- https://www.youtube.com/watch?v=d2ve7xQNco8&list=PLpwngcHZlPaeFU5644jt7gLOodqMaafxx -->
+      <section class="pagination tv-container section">
+         <h2 class="section-title">Pagination UI Design </h2>
+         <span class="section-subtitle progress-subtitle">
+            Pagination UI Design using HTML CSS & JavaScript | Fully Functional Pagination Design in JavaScript
+         </span>
+         <div class="pagination-container">
+            <ul>
+               <!-- <li class="paging__btn prev">
+                  <i class='bx bx-chevron-left'></i>
+                  <span>Prev</span>
+               </li>
+               <li class="numb"><span>1</span></li>
+               <li class="numb"><span>2</span></li>
+               <li class="dots"><span>...</span></li>
+               <li class="numb"><span>4</span></li>
+               <li class="numb"><span>5</span></li>
+               <li class="dots"><span>...</span></li>
+               <li class="numb"><span>7</span></li>
+               <li class="paging__btn next">
+                  <span>Next</span>
+                  <i class='bx bx-chevron-right'></i>
+               </li> -->
+            </ul>
+         </div>
+      </section>
+
+   </main>
+
+   <!--===== FOOTER =====-->
+   <footer class="footer">
+
+   </footer>
+
+   <!-- ===== MIXITUP FILTER ===== -->
+   <script src=""></script>
+
+   <!-- ===== SWIPER JS ===== -->
+   <script src=""></script>
+
+   <!-- ===== GSAP ===== -->
+   <script src=""></script>
+
+   <!--===== MAIN JS =====-->
+   <script src="./assets/js/main.js"></script>
+
+   <!--===== Ionicons  JS =====-->
+   <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+
+</html>
