@@ -14,6 +14,8 @@
    <!-- ===== CSS ===== -->
    <link rel="stylesheet" href="./assets/css/styles.css">
 
+   <!-- ===== GOOGLE FONT ===== -->
+
    <title>TIP CSS</title>
 </head>
 
@@ -40,6 +42,60 @@
       </nav>
    </header>
    <main class="l-main">
+      <!--===== Password Generator  =====-->
+      <!-- https://www.youtube.com/watch?v=fD8gm-DhjXk&list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3 -->
+      <section class="generator tv-container section">
+         <h2 class="section-title">Password Generator</h2>
+         <span class="section-subtitle progress-subtitle">
+            Random Password Generator in HTML CSS & JavaScript | Password Generator in JavaScript
+         </span>
+         <div class="generator-container">
+            <h2 class="generator__title">Password Generator</h2>
+            <div class="generator__wrapper">
+               <div class="generator__input__box">
+                  <input type="text" disabled value="uG8s1xBqBXfDbx1XRIR7QnpZyINguU">
+                  <i class='bx bx-copy-alt'></i>
+               </div>
+               <div class="generator__indicator" id="weak"></div>
+               <div class="generator__pass__length">
+                  <span>Pass Length</span>
+                  <span>11</span>
+               </div>
+               <input type="range" class="generator__pass-length" min="1" max="30" value="15">
+               <div class="generator__pass__setting">
+                  <span class="generator__pass__title">Password Setting</span>
+                  <ul class="generator__pass__options">
+                     <li class="option__item">
+                        <input type="checkbox" checked>
+                        <span>Lowercase (a-z)</span>
+                     </li>
+                     <li class="option__item">
+                        <input type="checkbox">
+                        <span>Uppercase (A-Z)</span>
+                     </li>
+                     <li class="option__item">
+                        <input type="checkbox">
+                        <span>Numbers (0-9)</span>
+                     </li>
+                     <li class="option__item">
+                        <input type="checkbox">
+                        <span>Symbols (!-$^+)</span>
+                     </li>
+                     <li class="option__item">
+                        <input type="checkbox">
+                        <span>Exclude Duplicate</span>
+                     </li>
+                     <li class="option__item">
+                        <input type="checkbox">
+                        <span>Include Spaces</span>
+                     </li>
+                  </ul>
+               </div>
+               <button class="generate__btn">GENERATE PASSWORD </button>
+            </div>
+         </div>
+      </section>
+
       <!--===== Perspective =====-->
       <section class="perspective tv-container section">
          <h2 class="section-title">Card</h2>
@@ -192,7 +248,7 @@
             </ul>
          </div>
       </section>
-      
+
    </main>
 
    <!--===== FOOTER =====-->

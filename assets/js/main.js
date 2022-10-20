@@ -66,7 +66,7 @@ btn.addEventListener('mousemove', e =>{
    #5 xét trường hợp ở giữa. page value truyền vào lớn hơn 3 nhỏ hơn 18
    #5 
  */
-const ulTag = document.querySelector('ul');
+const ulTag = document.querySelector('.pagination-container ul');
 let totalPages = 20;
 function element(totalPages, page){
    let liTag = '';
