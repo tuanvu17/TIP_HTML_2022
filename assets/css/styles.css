@@ -310,8 +310,13 @@ img{
    letter-spacing: 1.4px;
    pointer-events: none;
 }
+.generator__input__box i{
+   font-size: 1.4rem;
+}
 .generator__input__box i:hover{
    color: #01b2fe;
+   cursor: pointer;
+   
 }
 .generator__indicator{
    position: relative;
@@ -385,7 +390,6 @@ img{
    width: calc(100%/2);
 }
 .option__item input{
-   margin-right: .5rem;
    cursor: pointer;
    height: 1rem;
    width: 1rem;
@@ -396,14 +400,16 @@ img{
 .option__item:first-child input{
    opacity: .7;
 }
+.option__item label{
+   cursor: pointer;
+   padding-left: .5rem;
+}
 .generate__btn{
    border: none;
    outline-style: none;
-   align-self: center;
    height: 2.5rem;
    width: 100%;
-   display: inline-block;
-   background-color: #4285f4;
+   background-color: #0199fe;
    color: #fff;
    border-radius: 5px;
    padding: 2rem 0;
@@ -413,9 +419,10 @@ img{
    justify-content: center;
    letter-spacing: .1rem;
    cursor: pointer;
+   text-transform: uppercase;
 }
 .generate__btn:hover{
-   background: hsla(217, 89%, 61%, 0.781);;
+   background: #0062ffa6;
 }
 
 /*===== CARD PERSPECTIVE =====*/

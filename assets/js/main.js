@@ -30,7 +30,7 @@ const circularToggle = document.getElementById('circular-toggle');
 
 circularToggle.addEventListener('click', () => {
    circulaMenu.classList.toggle('active');
-})
+});
 
 const progressBar = document.getElementsByClassName('progress-bar')[0];
 const myInterval = setInterval(() => {
@@ -43,7 +43,7 @@ const myInterval = setInterval(() => {
       progressBar.style.setProperty('--width', width + .1);
       // clearInterval(myInterval);
    }
-}, .1)
+}, .1);
 
 /*===== Gradient  =====*/
 let btn = document.querySelector('.mouse-cursor-gradient-tracking');
@@ -68,6 +68,7 @@ btn.addEventListener('mousemove', e =>{
  */
 const ulTag = document.querySelector('.pagination-container ul');
 let totalPages = 20;
+
 function element(totalPages, page){
    let liTag = '';
    let activeLi;
@@ -134,3 +135,28 @@ function element(totalPages, page){
 }
 
 element(totalPages, 5); // calling function above with passsing values
+
+
+// <!--===== Password Generator  =====-->
+
+const lengthSlider = document.getElementById('generator__pass-length'),
+generateBtn = document.querySelector('generate__btn'),
+options = document.querySelectorAll('.option__item input')
+console.log(options);
+const updateSlider = () =>{  
+   console.log(lengthSlider.value);
+   document.querySelector('.generator__pass__length span').innerText = lengthSlider.value;
+}
+
+const generatePassword = () =>{
+   let staticPassword = "";
+   options.forEach(item =>{
+      if(item.checked){
+         console.log(item);
+      }
+   })
+}
+
+updateSlider();
+lengthSlider.addEventListener("input", updateSlider);
+generateBtn.addEventListener("click", generatePassword);

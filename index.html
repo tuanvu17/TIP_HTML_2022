@@ -53,41 +53,41 @@
             <h2 class="generator__title">Password Generator</h2>
             <div class="generator__wrapper">
                <div class="generator__input__box">
-                  <input type="text" disabled value="uG8s1xBqBXfDbx1XRIR7QnpZyINguU">
+                  <input type="text" disabled  value="uG8s1xBqBXfDbx1XRIR7QnpZyINguU">
                   <i class='bx bx-copy-alt'></i>
                </div>
                <div class="generator__indicator" id="weak"></div>
                <div class="generator__pass__length">
-                  <span>Pass Length</span>
-                  <span>11</span>
+                  <label>Pass Length</label>
+                  <span></span>
                </div>
-               <input type="range" class="generator__pass-length" min="1" max="30" value="15">
+               <input type="range" class="generator__pass-length" id="generator__pass-length" min="1" max="30" value="15">
                <div class="generator__pass__setting">
                   <span class="generator__pass__title">Password Setting</span>
                   <ul class="generator__pass__options">
                      <li class="option__item">
-                        <input type="checkbox" checked>
-                        <span>Lowercase (a-z)</span>
+                        <input type="checkbox" id="lowercase" checked>
+                        <label for="lowercase">Lowercase (a-z)</label>
                      </li>
                      <li class="option__item">
-                        <input type="checkbox">
-                        <span>Uppercase (A-Z)</span>
+                        <input type="checkbox" id="uppercase">
+                        <label for="uppercase">Uppercase (A-Z)</label>
                      </li>
                      <li class="option__item">
-                        <input type="checkbox">
-                        <span>Numbers (0-9)</span>
+                        <input type="checkbox" id="number">
+                        <label for="number">Numbers (0-9)</label>
                      </li>
                      <li class="option__item">
-                        <input type="checkbox">
-                        <span>Symbols (!-$^+)</span>
+                        <input type="checkbox" id="symbols">
+                        <label for="symbols">Symbols (!-$^+)</label>
                      </li>
                      <li class="option__item">
-                        <input type="checkbox">
-                        <span>Exclude Duplicate</span>
+                        <input type="checkbox" id="exc-duplicate">
+                        <label for="exc-duplicate">Exclude Duplicate</label>
                      </li>
                      <li class="option__item">
-                        <input type="checkbox">
-                        <span>Include Spaces</span>
+                        <input type="checkbox" id="spaces">
+                        <label for="spaces">Include Spaces</label>
                      </li>
                   </ul>
                </div>
