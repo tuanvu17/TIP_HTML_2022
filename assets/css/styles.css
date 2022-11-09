@@ -112,6 +112,8 @@ img{
    color: #FFF;
    opacity: .7; /* Firefox */
  }
+
+
 /*===== CLASS CSS =====*/
 .section{
    padding: 4rem 0 4rem;
@@ -256,6 +258,300 @@ img{
 }
 /* >>>>>> MAIN >>>>>>>>>>>>>>>> */
 
+/* <!--===== Resize and Compress Images   =====--> */
+.resizing{
+   background-color: #927DFC;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center;
+   margin-top: calc(var(--header-height) + 3rem);
+   border-radius: 10px;
+   color: #fff;
+}
+.resizing h2,.resizing span{
+   color: #fff;
+   
+}
+.resizing-wrapper{
+   width: 450px;
+   padding: 30px;
+   background-color: #fff;
+   border-radius: 10px;
+   color: #000;
+   
+}
+
+.resizing__upload-box{
+   height: 225px;
+   /* width: 100%; */
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   border : 1px dashed #000;
+   cursor: pointer;  
+   border-radius: 10px;
+}
+
+.resizing__upload-box img{
+   width: 45px;
+   height: 45px;
+   /* align-self: flex-start; */
+   object-fit: cover;
+   border-radius: 5px;
+}
+.resizing__upload-box p{
+   color: #000;
+   /* text-align: center; */
+   margin-top: .5rem;
+}
+.resizing-wrapper.active .resizing__upload-box{
+   border: none;
+}
+.resizing-wrapper.active .resizing__upload-box p{
+   display: none;
+}
+
+.resizing-wrapper.active .resizing__upload-box img{
+   width: 100%;
+   height: 100%;
+   /* align-self: flex-start; */
+   object-fit: cover;
+   border-radius: 5px;
+}
+
+
+.resizing__content{
+   width: 100%;
+}
+
+.resizing-row{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   column-gap: .5rem;
+   row-gap: 1rem;
+   margin: 1rem 0;
+}
+
+.resizing-col{
+   width: 100%;
+}
+.resizing-col label{
+   font-size: 1rem;
+}
+.resizing-sizes input{
+   width: 100%;
+   height: 2.5rem;
+   border-radius: 5px;
+   outline: none;
+   background: none;
+   border: 1px solid #b5b5b5;
+   padding: .5rem;
+   font-weight: 400;
+   font-size: 1rem;
+   margin-top: .5rem;
+}
+
+.resizing-checkboxes input{
+   height: 1rem;
+   width: 1rem;
+   margin: 0;
+   cursor: pointer;
+   margin-right: 5px;
+}
+.resizing__content .download-btn{
+   width: 100%;
+   border: none;
+   outline: none;
+   padding: 1rem;
+   border-radius: 10px;
+   margin: .5rem 0;
+   background-color: #927DFC;
+   color: #fff;
+   font-size: 1rem;
+   font-weight: 500;
+   cursor: pointer;
+   opacity: .8;
+   transition: .3s;
+   text-transform: uppercase;
+}
+.resizing__content .download-btn:hover{
+   opacity: 1;
+}
+/* <!--===== Word Guessing Game  =====-->*/
+
+.guessing{
+   background-color: #1BB295;
+   display: flex;
+   flex-direction: column;
+   justify-content: center; 
+   align-items: center;
+   margin-top: calc(var(--header-height) + 3rem);
+   border-radius: 10px;
+}
+
+.guessing-container{
+   /* display: flex;
+   flex-direction: column;
+   justify-content: center; */
+   /* align-items: center; */
+   width: 430px;
+   height: 410px;
+   background-color: #fff;
+   border-radius: 10px;
+   /* color: #fff; */
+}
+
+.guessing-container h1{
+   font-size: 25px;
+   font-weight: 600;
+   padding : 20px 25px;
+   border-bottom: 1px solid #ccc;
+}
+.guessing-container .guessing__content{
+   margin: 25px 25px 35px;
+}
+
+.guessing-container .guessing__inputs{
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+}
+.guessing__inputs input{
+   width: 56px;
+   height: 57px;
+   margin: 4px;
+   background: none;
+   border: 1px solid #b5b5b5;
+   border-radius: 5px;
+   font-weight: 600;
+   font-size: 1.2rem;
+   color: #1BB295;
+   text-align: center;
+}
+
+.guessing__inputs input:first-child{
+   margin-left: 0px;
+}
+.guessing__details{
+   margin: 20px 0 25px;
+}
+.guessing__details p{
+   margin-bottom: 10px;
+   font-size: 1rem;
+}
+.guessing__btn-reset{
+   width: 100%;
+   outline: none;
+   border-style: none;
+   padding: 15px 0;
+   background-color: #1BB295;
+   color: #fff;
+   cursor: pointer;
+}
+
+
+/* 
+.guessing{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-color: #1BB295;
+   margin-top: calc(var(--header-height) + 3rem);
+   border-radius: 10px;
+}
+
+.guessing-container{
+   width: 430px;
+   height: 410px;
+   background-color: #fff;
+   border-radius: 10px;
+   color: #000;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   padding: 16px;
+   overflow: hidden;
+}
+
+.guessing-header{
+   position: relative;
+   height: 76px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: flex-start;
+   width: 100%;
+   font-size: 1.3rem;
+
+}
+
+.guessing-header::before{
+   position: absolute;
+   content: '';
+   bottom: 0;
+   left: -20px;
+   height: 1px;
+   width: 500px;
+   background-color: rgb(201, 193, 193);
+}
+.guessing__cell-box{
+   display: flex;
+   padding: 10px;
+   width: 100%;
+}
+
+.guessing__cell-list{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-around;
+}
+.guessing__cell-item{
+   text-align: center;
+   height: 55px;
+   width: 55px;
+   border: 1px solid rgb(201, 193, 193);
+   border-radius: 3px;
+   margin: 5px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   color: #1BB295;
+   font-weight: 900;
+}  
+
+.guessing-modifer{
+   display: flex;
+   width: 100%;
+   height: 150px;
+   flex-direction: column;
+   align-items: flex-start;
+   justify-content: space-around;
+   font-size: 1rem;
+   font-weight: 100;
+}
+
+.guessing-reset-btn{
+   width: 100%;
+   border-style: none;
+   background-color: #1BB295;
+   color: #fff;
+   height: 55px;
+   font-size: 1rem;
+   border-radius: 5px;
+   cursor: pointer;
+   opacity: .9;
+   margin: 20px 0;
+}
+.guessing-reset-btn:hover{
+   opacity: 1;
+} */
 /* <!--===== Generator UI CSS  =====-->*/
 .generator{
    display: flex;
@@ -265,6 +561,7 @@ img{
    background-color: #4285F4;
    margin-top: calc(var(--header-height) + 3rem);
    border-radius: 10px;
+   
 }
 .generator-container{
    width: 450px;
@@ -298,7 +595,7 @@ img{
    height: 45px;
    width: 100%;
    border: 1px rgba(0, 0, 0, 0.5) solid ;
-   padding: 1rem 1.25rem;
+   padding: 1rem .25rem;
    margin-top: 1rem;
 }
 .generator__input__box input{
@@ -309,6 +606,7 @@ img{
    font-weight: 500;
    letter-spacing: 1.4px;
    pointer-events: none;
+   width: 100%;
 }
 .generator__input__box i{
    font-size: 1.4rem;
@@ -354,11 +652,11 @@ img{
    justify-content: space-between;
    width: 100%;
 }
-.generator__pass-length{
+/* .generator grid r__pass-length{
    width: 100%;
    height: 5px;
    margin-bottom: 1.5rem;
-}
+} */
 .generator__pass__setting{
    display: flex;
    flex-direction: column;

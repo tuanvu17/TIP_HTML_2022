@@ -140,23 +140,185 @@ element(totalPages, 5); // calling function above with passsing values
 // <!--===== Password Generator  =====-->
 
 const lengthSlider = document.getElementById('generator__pass-length'),
-generateBtn = document.querySelector('generate__btn'),
-options = document.querySelectorAll('.option__item input')
-console.log(options);
-const updateSlider = () =>{  
-   console.log(lengthSlider.value);
-   document.querySelector('.generator__pass__length span').innerText = lengthSlider.value;
+generateBtn = document.querySelector('.generate__btn'),
+options = document.querySelectorAll('.option__item input'),
+copyIcon = document.querySelector('.generator__input__box i'),
+passIndicator = document.querySelector('.generator__indicator'),
+input__box = document.querySelector('.generator__input__box input');
+
+const characters = {
+   lowercase: "abcdefghijklmnopqrstuvwxyz",
+   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+   numbers: '0123456789',
+   symbols : ":.,;@#$!^[]{}*",
 }
 
 const generatePassword = () =>{
-   let staticPassword = "";
+   let staticPassword = "",
+   randomPassword = "",
+   excludeDuplicate = false,
+   passLength = lengthSlider.value;
    options.forEach(item =>{
       if(item.checked){
-         console.log(item);
+         if(item.id != 'exc-duplicate' && item.id != 'spaces'){
+            staticPassword += characters[item.id];
+         }else if(item.id === 'spaces'){
+            staticPassword += ` ${staticPassword} `;
+         } else{
+            excludeDuplicate = true;
+         }
       }
-   })
+   });
+
+   for (let i = 0; i < passLength; i++) {
+
+      let randomChar =  staticPassword[Math.floor(Math.random() * staticPassword.length)];
+      if(excludeDuplicate){
+         !randomPassword.includes(randomChar) || randomChar == " "? randomPassword += randomChar : i--;
+      }else{
+         randomPassword += randomChar;
+      }
+   };
+   input__box.value = randomPassword;
+
+}
+generatePassword();
+
+const updatePassIndicator = () =>{
+   passIndicator.id = lengthSlider.value <= 8 ? "weak" :  lengthSlider.value <= 16 ? "medium" : "strong";
+}
+const updateSlider = () =>{  
+   document.querySelector('.generator__pass__length span').innerText = lengthSlider.value;
+   generatePassword();
+   updatePassIndicator();
 }
 
 updateSlider();
+const copyPassword = () =>{
+   navigator.clipboard.writeText(input__box.value);
+   copyIcon
+}
+
 lengthSlider.addEventListener("input", updateSlider);
+copyIcon.addEventListener("click", copyPassword);
 generateBtn.addEventListener("click", generatePassword);
+
+
+/* <!--===== Word Guessing Game  =====-->*/
+const wordList = [
+   {
+      word: "python",
+      hint: "programming language"
+   },
+   {
+      word: "guitar",
+      hint: "a musical instrument"
+   },
+   {
+      word: "aim",
+      hint: "a purpose or intention"
+   },
+   {
+      word: "venus",
+      hint: "planet of our solar system"
+   },
+   {
+      word: "gold",
+      hint: "a yellow precious metal"
+   },
+   {
+      word: "idea",
+      hint: "a thought or suggestion"
+   },
+   {
+      word: "server",
+      hint: "related to computer or system"
+   },
+   {
+      word: "svg",
+      hint: "a vector image format"
+   },
+   {
+      word: "jpeg",
+      hint: "a small image file format"
+   },
+   {
+      word: "search",
+      hint: "act to find something"
+   }
+]
+const inputs = document.querySelector('.guessing__inputs');
+const resetBtn = document.querySelector('.guessing__btn-reset');
+const hint = document.querySelector('.guessing__hint span');
+
+function randomWord(){
+   let ranObj = wordList[Math.floor(Math.random() * wordList.length)];
+   console.log(ranObj.word);
+   let word = ranObj.word;
+   hint.innerText = ranObj.hint;
+   
+   let html = "";
+   for (let index = 0; index < word.length; index++) {
+      html += `<input type="text"  disabled>`
+   }
+   inputs.innerHTML = html;
+}
+randomWord();
+
+resetBtn.addEventListener('click', randomWord);
+
+
+// <!--===== Resize and Compress Images   =====-->
+
+const uploadBox = document.querySelector('.resizing__upload-box'),
+fileInput = uploadBox.querySelector('input'),
+previewImg = uploadBox.querySelector('img'),
+widthInput = document.querySelector('.resizing-width input'),
+heightInput = document.querySelector('.resizing-height input'),
+ratioInput = document.querySelector('.resizing-ratio input'),
+qualityInput = document.querySelector('.resizing-quality input'),
+downloadBtn = document.querySelector('.download-btn')
+
+let ogImageRatio;
+const loadFile = (e) =>{
+   const file = e.target.files[0];
+   if(!file) return;
+   previewImg.src = URL.createObjectURL(file);
+   previewImg.addEventListener('load', ()=>{
+      widthInput.value = previewImg.naturalWidth;
+      heightInput.value = previewImg.naturalHeight;
+      document.querySelector('.resizing-wrapper').classList.add('active');
+      ogImageRatio = previewImg.naturalWidth/previewImg.naturalHeight;
+   })
+   
+   console.log(file);
+}
+
+widthInput.addEventListener('keyup', ()=>{
+   const height = ratioInput.checked ? widthInput.value / ogImageRatio : heightInput.value;
+   heightInput.value = Math.floor(height);
+})
+heightInput.addEventListener('keyup', ()=>{
+   const width = ratioInput.checked ? heightInput.value * ogImageRatio : widthInput.value;
+   widthInput.value = Math.floor(width);
+})
+
+const resizeAndDownload = () =>{
+   const canvas = document.createElement("canvas");
+   const a = document.createElement("a");
+   const ctx = canvas.getContext("2d");
+
+   const imgQualityInput = qualityInput.checked ? .7 : 1;
+
+   canvas.width = widthInput.value;
+   canvas.height = heightInput.value;
+
+   ctx.drawImage(previewImg, 0, 0, canvas.width, canvas.height);
+   a.href = canvas.toDataURL('image/jpeg', imgQualityInput);
+   a.download  = new Date().getTime();
+   a.click();
+}
+
+downloadBtn.addEventListener('click', resizeAndDownload)
+fileInput.addEventListener('change', loadFile);
+uploadBox.addEventListener('click',() => fileInput.click())
