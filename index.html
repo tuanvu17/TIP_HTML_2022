@@ -43,6 +43,76 @@
    </header>
    <main class="l-main">
 
+      <!--===== Build A Drawing or Paint App    =====-->
+      <!-- https://www.youtube.com/watch?v=y84tBZo8GFo&list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3&index=5 -->
+
+      <section class="drawing  tv-container section">
+         <h2 class="section-title">Build A Drawing or Paint App </h2>
+         <span class="section-subtitle progress-subtitle">
+            Build A Drawing or Paint App in HTML CSS & JavaScript | Drawing App in JavaScript
+         </span>
+         <div class="drawing-container">
+            <div class="drawing__tools-board">
+               <div class="drawing-row">
+                  <label for="" class="title">Shapes</label>
+                  <ul class="options">
+                     <li class="option tool" id="rectangle">
+                        <img src="./assets/icons/rectangle.svg" alt="">
+                        <span>Rectangle</span>
+                     </li>
+                     <li class="option tool" id="circle">
+                        <img src="./assets/icons/circle.svg" alt="">
+                        <span>Cirle</span>
+                     </li>
+                     <li class="option tool" id="triangle">
+                        <img src="./assets/icons/triangle.svg" alt="">
+                        <span>Triangle</span>
+                     </li>
+                     <li class="option" id="">
+                        <input type="checkbox" id="fill-color">
+                        <label for="fill-color">Fill color</label>
+                     </li>
+                  </ul>
+               </div>
+               <div class="drawing-row">
+                  <label for="" class="title">Options</label>
+                  <ul class="options">
+                     <li class="option active tool" id="brush">
+                        <img src="./assets/icons/brush.svg" alt="">
+                        <span>Brush</span>
+                     </li>
+                     <li class="option tool" id="eraser">
+                        <img src="./assets/icons/eraser.svg" alt="">
+                        <span>Eraser</span>
+                     </li>
+                     <li class="option" id="">
+                        <input type="range" id="size-slider" min="1" max="30" value="5">
+                     </li>
+                  </ul>
+               </div>
+               <div class="drawing-row colors">
+                  <label for="" class="title">Colors</label>
+                  <ul class="options">
+                     <li class="option"></li>
+                     <li class="option selected"></li>
+                     <li class="option "></li>
+                     <li class="option"></li>
+                     <li class="option">
+                        <input type="color" id="color-picker" value="#4A3853">
+                     </li>
+                  </ul>
+               </div>
+               <div class="drawing-row">
+                  <button class="clear-canvas">Clear Canvas</button>
+                  <button class="save-img">Save as Image</button>
+               </div>
+            </div>
+            <div class="drawing__drawing-board">
+               <canvas></canvas>
+            </div>
+         </div>
+      </section>
+
       <!--===== Resize and Compress Images   =====-->
       <!-- https://www.youtube.com/watch?v=x8U2MTTEjtI&list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3&index=2 -->
 
@@ -57,30 +127,30 @@
                <img src="https://www.freeiconspng.com/uploads/upload-icon-22.png" alt="">
                <p class="">Browse File to Upload</p>
             </div>
-               <div class="resizing__content">
-                  <div class="resizing-row resizing-sizes">
-                     <div class="resizing-col resizing-width">
-                        <label>Width</label>
-                        <input type="number">
-                     </div>
-                     <div class="resizing-col resizing-height">
-                        <label>Height</label>
-                        <input type="number">
-                     </div>
+            <div class="resizing__content">
+               <div class="resizing-row resizing-sizes">
+                  <div class="resizing-col resizing-width">
+                     <label>Width</label>
+                     <input type="number">
                   </div>
-                  <div class="resizing-row resizing-checkboxes">
-                     <div class="resizing-col resizing-ratio">
-                        <input type="checkbox" id="ratio" checked>
-                        <label for="ratio">Lock aspect ratio</label>
-                     </div>
-                     <div class="resizing-col resizing-quality">
-                        <input type="checkbox" id="quality">
-                        <label  for="quality">Reduce quality</label>
-                     </div>
+                  <div class="resizing-col resizing-height">
+                     <label>Height</label>
+                     <input type="number">
                   </div>
-                  <button class="download-btn">Download Image</button>
                </div>
-               
+               <div class="resizing-row resizing-checkboxes">
+                  <div class="resizing-col resizing-ratio">
+                     <input type="checkbox" id="ratio" checked>
+                     <label for="ratio">Lock aspect ratio</label>
+                  </div>
+                  <div class="resizing-col resizing-quality">
+                     <input type="checkbox" id="quality">
+                     <label for="quality">Reduce quality</label>
+                  </div>
+               </div>
+               <button class="download-btn">Download Image</button>
+            </div>
+
          </div>
       </section>
 
@@ -90,7 +160,8 @@
       <section class="guessing tv-container section">
          <h2 class="section-title">Word Guessing Game </h2>
          <span class="section-subtitle progress-subtitle">
-            In this video, I've shown you how to build a Guess the Word Game in HTML CSS & JavaScript. In this game, users have to find all letters of a random word in the given guesses.
+            In this video, I've shown you how to build a Guess the Word Game in HTML CSS & JavaScript. In this game,
+            users have to find all letters of a random word in the given guesses.
          </span>
          <div class="guessing-container">
             <h1>Guess the Word</h1>
@@ -116,7 +187,7 @@
             </div>
          </div>
       </section>
-<!--       
+      <!--       
       <section class="guessing tv-container section">
          <h2 class="section-title">Word Guessing Game </h2>
          <span class="section-subtitle progress-subtitle">
@@ -156,8 +227,6 @@
             <button class="guessing-reset-btn">Reset Name</button>
          </div>
       </section> -->
-
-      
 
       <!--===== Password Generator  =====-->
       <!-- https://www.youtube.com/watch?v=fD8gm-DhjXk&list=PLpwngcHZlPadhRwryAXw3mJWX5KH3T5L3 -->
