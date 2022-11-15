@@ -1,5 +1,117 @@
-// <!--===== Build A Drawing or Paint App    =====-->
+// <!--===== Notes App in JavaScript    =====-->
+const popupBox = document.querySelector(".popup-box"),
+addBox = document.querySelector(".add-box"),
+title = popupBox.querySelector(".title input"),
+popupTitle = popupBox.querySelector(".note__header p"),
+desc = popupBox.querySelector(".description textarea"),
+btnAddNote = popupBox.querySelector("button"),
+popupClose = popupBox.querySelector(".note__header i");
 
+let isUpdate = false;
+let isUpdateId;
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+// const notes = [];
+const notes = JSON.parse(localStorage.getItem("notes") || []);
+             
+const showNotes = () =>{
+   document.querySelectorAll(".note").forEach(note => note.remove());
+   notes.forEach((note, id) =>{
+      let liTag = `<li class="note">
+      <div class="details">
+         <p >${note.title}</p>
+         <span>${note.description} </span>
+      </div>
+      <div class="bottom-content">
+         <span>${note.date}</span>
+         <div class="settings" >
+            <i onclick="showMenu(this)" class='bx bx-dots-horizontal-rounded'></i>
+            <ul class="menu">
+               <li id= "edit" onclick="editNote(${id})"><i class='bx bxs-edit-alt' ></i>Edit</li>
+               <li id= "delete" onclick="deleteNote(${id})"><i class='bx bx-trash-alt'></i>Delete</li>
+            </ul>
+         </div>
+      </div>
+      </li>`
+      addBox.insertAdjacentHTML("afterend", liTag);
+   })
+}
+showNotes();
+
+const showMenu = (elem) =>{
+   elem.parentElement.classList.add("show");
+   document.addEventListener("click", e => {
+      if(e.target.tagName != "I" || e.target != elem) {
+         elem.parentElement.classList.remove("show");
+      }
+   })
+}
+
+const editNote = (id) =>{
+   addBox.click();
+   btnAddNote.innerText = "Update Note";
+   popupTitle.innerText = "Update A Note";
+   isUpdate = true;
+   isUpdateId = id;
+   let note = notes[id];
+   title.value = note.title;
+   desc.value = note.description;
+}
+
+const deleteNote = (id) =>{
+   let confirmDel = confirm("Ban co chac chan muon xoa?");
+   if(!confirmDel) return;
+   notes.splice(id, 1);
+   localStorage.setItem("notes", JSON.stringify(notes));
+   showNotes();
+}
+const closeModal = () =>{
+   isUpdate = false;
+   isUpdateId = null;
+   popupBox.classList.remove("show-popup-box");
+   btnAddNote.innerText = "Add Note";
+   popupTitle.innerText = "Add A Note"
+}
+const showModal = () =>{
+   title.value = '', desc.value = '';
+   title.focus();
+   popupBox.classList.add("show-popup-box");
+}
+const addNote = (e) =>{
+   let titleVal = title.value, descVal = desc.value;
+   if(titleVal || descVal){
+      let dateObj = new Date();
+      let month = months[dateObj.getMonth()],
+      day = dateObj.getDate(),
+      year = dateObj.getFullYear();
+
+      let nodeInfo = {
+         title :  titleVal,
+         description: descVal,
+         date : `${month} ${day}, ${year}`
+      }
+      if(!isUpdate){
+         notes.push(nodeInfo);
+      }else{
+         notes[isUpdateId] = nodeInfo;
+      }
+      // notes.unshift(nodeInfo);
+      // chen phan tu vao dau mang
+      localStorage.setItem("notes", JSON.stringify(notes));
+   }
+   closeModal();
+   showNotes();
+}
+
+btnAddNote.addEventListener("click", e =>{
+   e.preventDefault();
+   addNote();
+})
+popupClose.addEventListener("click", closeModal)
+addBox.addEventListener("click", showModal)
+
+// <!--===== Build A Drawing or Paint App    =====-->
 const canvas = document.querySelector("canvas"),
 toolBtns = document.querySelectorAll(".tool"),
 fillColor = document.querySelector("#fill-color"),
@@ -9,6 +121,7 @@ colorPicker = document.querySelector("#color-picker"),
 clearCanvas = document.querySelector(".clear-canvas"),
 saveImg = document.querySelector(".save-img"),
 ctx = canvas.getContext("2d");
+
 
 let prevMouseX, prevMouseY, snapshot,
 isDrawing = false,
@@ -77,9 +190,7 @@ const drawing = (e) =>{
    }else if(selectedTool == "triangle"){
       drawTriangle(e);
    }
-   
 
-   
 }
 
 toolBtns.forEach(btn =>{
